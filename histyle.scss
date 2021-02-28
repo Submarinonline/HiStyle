@@ -29,44 +29,58 @@ $shadow-d:#16181d;
 }
 
 :root {
-  --color: #{$color};
-  --bg-color: #{$bg-color};
-  --bg-color2: #{$bg-color2};
-  --pri-color: #{$pri-color};
-  --shadow: #{$shadow};
+  --hs-color: #{$color};
+  --hs-bg-color: #{$bg-color};
+  --hs-bg-color2: #{$bg-color2};
+  --hs-pri-color: #{$pri-color};
+  --hs-shadow: #{$shadow};
 
-  &.dark {
-    --color: #{$color-d};
-    --bg-color: #{$bg-color-d};
-    --bg-color2: #{$bg-color2-d};
-    --shadow: #{$shadow-d};
+  &.hs-dark {
+    --hs-color: #{$color-d};
+    --hs-bg-color: #{$bg-color-d};
+    --hs-bg-color2: #{$bg-color2-d};
+    --hs-shadow: #{$shadow-d};
   }
 }
+
+//通常ダグ
 
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  color: var(--color);
-  background-color: var(--bg-color);
-  font-family: 'Jost','NotoSansCJKjp';
+  color: var(--hs-color);
+  background-color: var(--hs-bg-color);
+  font-family: 'Jost', 'NotoSansCJKjp';
   font-size: 16px;
 }
 
+main {
+  box-sizing: border-box;
+  height: 100vh;
+  overflow-y: scroll;
+  padding-top: 74px;
+}
+
 a {
-  text-decoration: underline;
-  color: var(--pri-color);
+  text-decoration: none;
+  color: var(--hs-pri-color);
 }
 
 h1 {
   text-align: center;
-  font-size: 30px
+  font-size: 32px;
+
+  >a {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+  }
 }
 
 h2 {
   width: 100%;
-  background-color: var(--bg-color2);
+  background-color: var(--hs-bg-color2);
   height: 34px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -76,7 +90,7 @@ h2 {
 }
 
 h3 {
-  color: var(--pri-color);
+  color: var(--hs-pri-color);
   margin: 15px 0 0 0;
   font-size: 15px;
   line-height: 15px
@@ -84,32 +98,54 @@ h3 {
 
 code {
   font-size: 14px;
-  line-height: 14px;
+  padding: 1px;
   font-family: 'FiraMono';
-  background-color: var(--bg-color2);
+  background-color: var(--hs-bg-color2);
+  user-select: all;
+
+  pre & {
+    width: 100%;
+    background-color: transparent;
+  }
 }
 
-hs- {
-  &header {
-    display: block;
+pre {
+  margin: 0;
+  padding: .5em;
+  background-color: var(--hs-bg-color2);
+}
+
+//クラス
+
+.hs- {
+  $this: &;
+
+  &fixednav {
+    display: grid;
+    grid-template-columns: 50px 1fr 50px;
     width: 100vw;
     height: 50px;
     position: fixed;
     top: 0;
+    transition: top .3s;
     left: 0;
-    background-color: rgba(var(--bg-color), .02);
-    box-shadow: 0 0 20px 0 var(--shadow);
+    z-index: 100;
+    box-shadow: 0 0 20px 0 var(--hs-shadow);
     backdrop-filter: blur(6.5px);
-    display: grid;
-    grid-template-columns: 50px 1fr 50px;
-    color: var(--pri-color);
+    color: var(--hs-pri-color);
 
-    +* {
-      margin-top: 74px;
+    #{$this}title {
+      height: 50px;
+      font-size: 25px;
+      font-weight: 600;
+      line-height: 50px;
+      filter: drop-shadow(0 0 20px var(--hs-shadow));
+      text-align: center;
+      white-space: nowrap;
+      user-select: none;
     }
 
-    &-button {
-      display: block;
+    #{$this}nav-button {
       width: 50px;
       height: 50px;
       font-family: 'MaterialIcons';
@@ -119,17 +155,36 @@ hs- {
       user-select: none;
       cursor: pointer;
     }
+  }
 
-    &-title {
-      display: block;
+  &menu {
+    width: 100vw;
+    backdrop-filter: blur(13px);
+    position: fixed;
+    top: -100vh;
+    transition: top .3s;
+    left: 0;
+    z-index: 100;
+
+    #{$this}title {
       height: 50px;
       font-size: 25px;
       font-weight: 600;
       line-height: 50px;
-      filter: drop-shadow(0 0 20px var(--shadow));
       text-align: center;
       white-space: nowrap;
       user-select: none;
+    }
+
+    #{$this}item {
+      height: 50px;
+      font-size: 25px;
+      line-height: 50px;
+      text-align: center;
+      white-space: nowrap;
+      user-select: none;
+      color: var(--hs-pri-color);
+      cursor: pointer;
     }
   }
 
@@ -139,4 +194,42 @@ hs- {
     margin-right: auto;
     margin-left: auto
   }
+
+  &button {
+    display: inline-block;
+    padding: .5rem 1rem;
+    margin: .5rem 1rem;
+    min-width: 6rem;
+    box-shadow: 0 0 3px 0 var(--hs-shadow);
+    transition: box-shadow .3s;
+    border-radius: 5px;
+
+    &:hover {
+      box-shadow: 0 0 6px 0 var(--hs-shadow);
+    }
+
+    &-pri {
+      @extend .hs-button;
+      color: var(--hs-bg-color);
+      background-color: var(--hs-pri-color);
+    }
+  }
+
+}
+
+//Web Grid用調整
+h2+.r > [class*=c-] {
+  padding: 0;
+}
+
+//webkit
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--hs-bg-color2);
+  border-radius: 10px;
 }

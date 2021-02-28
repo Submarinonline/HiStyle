@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja" class="">
+
+<head>
+  <meta charset="UTF-8">
+  <title>HiStyle</title>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/web-grid.min.css">
+  <link rel="stylesheet" href="/css/histyle.min.css">
+</head>
+
+<body>
+  <div class="hs-menu">
+    <div class="hs-title">Menu</div>
+    <div class="hs-item"><a href="index.html">Top</a></div>
+    <div class="hs-item"><a href="https://github.com/Submarinonline/HiStyle">Download</a></div>
+    <div class="hs-item"><a href="osl.html">OpenSourceLicense</a></div>
+  </div>
+  <nav class="hs-fixednav">
+    <div class="hs-nav-button" onclick="hs.switchMenu()">menu</div>
+    <div class="hs-title">HiStyle</div>
+    <div class="hs-nav-button" onclick="hs.switchTheme()">brightness_medium</div>
+  </nav>
+  <main>
+    <div class="hs-ctr">
+      <h1>Inspired by <a href="https://twitter.com/HiSubway">HiSubway</a></h1>
+      <div style="text-align: center;">
+        <a class="hs-button-pri" href="https://github.com/Submarinonline/HiStyle">ダウンロード</a>
+      </div>
+      <h2>HiStyleとは？</h2>
+      <p>
+        <a href="https://twitter.com/HiSubway">さぶうぇい</a>製のサイトで使われているCSSをより汎用性の高いものへ改良したCSSフレームワークです。<br>
+        クラスを極力使用せず、また使用するクラス全てに<code>hs-</code>の接頭辞を採用しています。
+      </p>
+      <h2>フォント</h2>
+      <div class="r">
+        <div class="c-6">
+          <p class="item">
+            通常の英数字、半角記号などは Jost 、その他文字は <span style="font-family: 'NotoSansCJKjp';">Noto Sans CJK jp</span>
+            を採用しています。<br>
+            また<code>&lt;code></code>タグ内では <span style="font-family: 'FiraMono';">Fira Mono</span> 、アイコンフォントとして Material
+            Icons を採用しています。
+          </p>
+        </div>
+        <div class="c-6">
+          <p class="item">
+            <h3>Jost</h3>
+            HiStyle was inspired by HiSubway.
+            <h3 style="font-family: 'NotoSansCJKjp';">Noto Sans CJK jp</h3>
+            ハイスタイルはさぶうぇいに触発されました。
+            <h3 style="font-family: 'FiraMono';">Fira Mono</h3>
+            <span style="font-family: 'FiraMono';">const HiStyle = inspire('HiSubway');</span>
+          </p>
+        </div>
+      </div>
+      <h2>グリッド</h2>
+      <p>
+        <a href="https://webjeda.com/web-grid/">Web Grid</a>を採用しているため簡潔でわかりやすくレスポンシブな配置が可能です。<br>
+        HiStyle本体にグリッド機能は内蔵されていないので好みのフレームワークに差し替えることも可能です。
+      </p>
+      <div class="r">
+        <div class="c-6">
+          <div class="item" style="background-color: var(--hs-bg-color2);">
+            <pre><code>&lt;div class="r"><br>  &lt;div class="c-1"><br>    &lt;p class="item"> a &lt;/p><br>  &lt;/div><br>  &lt;div class="c-11"><br>    &lt;p class="item"> b &lt;/p><br>  &lt;/div>    <br>&lt;/div><br>&lt;div class="r"><br>  &lt;div class="c-6"><br>    &lt;p class="item"> c &lt;/p><br>  &lt;/div><br>  &lt;div class="c-6"><br>    &lt;p class="item"> d &lt;/p><br>  &lt;/div>    <br>&lt;/div></code></pre>
+          </div>
+        </div>
+        <div class="c-6">
+          <div class="item" style="background-color: var(--hs-bg-color2); padding: .5em;">
+            <div class="r">
+              <div class="c-1" style="background-color: #ff00007f;">
+                <p class="item">a</p>
+              </div>
+              <div class="c-11" style="background-color: #00ff007f;">
+                <p class="item">b</p>
+              </div>
+            </div>
+            <div class="r">
+              <div class="c-6" style="background-color: #0000ff7f;">
+                <p class="item">c</p>
+              </div>
+              <div class="c-6" style="background-color: #ff00ff7f;">
+                <p class="item">d</p>
+              </div>
+            </div>
+            <span>注：説明のため色を付けています</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/jquery-3.5.1.min.js"></script>
+  <script src="/js/histyle-main.js"></script>
+  <script src="/js/histyle-SGlTdWJ3YXk=.js"></script>
+</body>
+
+</html>
