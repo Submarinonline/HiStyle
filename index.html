@@ -3,6 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HiStyle</title>
   <link rel="stylesheet" href="./css/normalize.css">
   <link rel="stylesheet" href="./css/web-grid.min.css">
@@ -27,12 +28,12 @@
       <div style="text-align: center;">
         <a class="hs-button-pri" href="https://github.com/Submarinonline/HiStyle">ダウンロード</a>
       </div>
-      <h2>HiStyleとは？</h2>
+      <h3>HiStyleとは？</h3>
       <p>
         <a href="https://twitter.com/HiSubway">さぶうぇい</a>製のサイトで使われているCSSをより汎用性の高いものへ改良したCSSフレームワークです。<br>
         クラスを極力使用せず、また使用するクラス全てに<code>hs-</code>の接頭辞を採用しています。
       </p>
-      <h2>フォント</h2>
+      <h3>フォント</h3>
       <div class="r">
         <div class="c-6">
           <p class="item">
@@ -44,16 +45,16 @@
         </div>
         <div class="c-6">
           <p class="item">
-            <h3>Jost</h3>
+            <h4>Jost</h4>
             HiStyle was inspired by HiSubway.
-            <h3 style="font-family: 'NotoSansCJKjp';">Noto Sans CJK jp</h3>
+            <h4 style="font-family: 'NotoSansCJKjp';">Noto Sans CJK jp</h4>
             ハイスタイルはさぶうぇいに触発されました。
-            <h3 style="font-family: 'FiraMono';">Fira Mono</h3>
+            <h4 style="font-family: 'FiraMono';">Fira Mono</h4>
             <span style="font-family: 'FiraMono';">const HiStyle = inspire('HiSubway');</span>
           </p>
         </div>
       </div>
-      <h2>グリッド</h2>
+      <h3>グリッド</h3>
       <p>
         <a href="https://webjeda.com/web-grid/">Web Grid</a>を採用しているため簡潔でわかりやすくレスポンシブな配置が可能です。<br>
         HiStyle本体にグリッド機能は内蔵されていないので好みのフレームワークに差し替えることも可能です。
@@ -86,6 +87,28 @@
           </div>
         </div>
       </div>
+      <h3>見出し</h3>
+      <div class="r">
+        <div class="c-6">
+          <p class="item">
+            サイズや配色の違う数パターンを用意しています。<br>
+            <code>&lt;h3></code>、<code>&lt;h4></code>を主要な見出しとして使うことを想定しています。
+          </p>
+        </div>
+        <div class="c-6">
+          <h1>h1</h1>
+          <h2>h2</h2>
+          <h3>h3</h3>
+          <h4>h4</h4>
+          <h5>h5</h5>
+        </div>
+      </div>
+      <h3>ボタン・インプット</h3>
+      <a class="hs-button" href="#">.hs-button</a>
+      <button>button</button>
+      <input type="button" value="input[type=button]">
+      <input type="submit" value="input[type=submit]"><br>
+      <a class="hs-button-pri" href="#">.hs-button-pri</a>
     </div>
   </main>
 

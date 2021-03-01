@@ -1,49 +1,4 @@
-$color:#242452;
-$color-d:#eeeef7;
-$bg-color:#ffffff;
-$bg-color-d:#212121;
-$bg-color2:#ebebef;
-$bg-color2-d:#3a3a40;
-$pri-color:#41adef;
-$shadow:#a0a6b8;
-$shadow-d:#16181d;
-
-@font-face {
-  font-family: 'Jost';
-  src: url(../font/Jost/TrueType/Jost-400-Book.ttf);
-}
-
-@font-face {
-  font-family: 'NotoSansCJKjp';
-  src: url(../font/Noto/NotoSansCJKjp-Regular.otf);
-}
-
-@font-face {
-  font-family: 'FiraMono';
-  src: url(../font/Fira/ttf/FiraMono-Regular.ttf);
-}
-
-@font-face {
-  font-family: 'MaterialIcons';
-  src: url(../font/MaterialDesignIcons/font/MaterialIcons-Regular.ttf);
-}
-
-:root {
-  --hs-color: #{$color};
-  --hs-bg-color: #{$bg-color};
-  --hs-bg-color2: #{$bg-color2};
-  --hs-pri-color: #{$pri-color};
-  --hs-shadow: #{$shadow};
-
-  &.hs-dark {
-    --hs-color: #{$color-d};
-    --hs-bg-color: #{$bg-color-d};
-    --hs-bg-color2: #{$bg-color2-d};
-    --hs-shadow: #{$shadow-d};
-  }
-}
-
-//通常ダグ
+@import './scss-parts/define';
 
 html {
   scroll-behavior: smooth;
@@ -79,6 +34,16 @@ h1 {
 }
 
 h2 {
+  text-align: center;
+  font-size: 24px;
+
+  >a {
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+  }
+}
+
+h3 {
   width: 100%;
   background-color: var(--hs-bg-color2);
   height: 34px;
@@ -89,11 +54,19 @@ h2 {
   font-size: 16px
 }
 
-h3 {
+h4 {
   color: var(--hs-pri-color);
   margin: 15px 0 0 0;
   font-size: 15px;
   line-height: 15px
+}
+
+h5 {
+  font-size: 15px;
+}
+
+h6 {
+  font-size: 12px;
 }
 
 code {
@@ -115,6 +88,29 @@ pre {
   background-color: var(--hs-bg-color2);
 }
 
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  display: inline-block;
+  padding: .5rem 1rem;
+  margin: .5rem 1rem;
+  min-width: 6rem;
+  box-shadow: 0 0 3px 0 var(--hs-shadow);
+  transition: box-shadow .3s;
+  border-radius: 5px;
+  text-align: center;
+  user-select: none;
+  outline: none;
+  border: none;
+  color: var(--hs-pri-color);
+  background-color: var(--hs-bg-color);
+
+  &:hover {
+    box-shadow: 0 0 6px 0 var(--hs-shadow);
+  }
+};
+
 //クラス
 
 .hs- {
@@ -133,6 +129,10 @@ pre {
     box-shadow: 0 0 20px 0 var(--hs-shadow);
     backdrop-filter: blur(6.5px);
     color: var(--hs-pri-color);
+
+    @supports not (backdrop-filter: blur(6.5px)) {
+      background-color: var(--hs-bg-color-o);
+    }
 
     #{$this}title {
       height: 50px;
@@ -166,6 +166,10 @@ pre {
     left: 0;
     z-index: 100;
 
+    @supports not (backdrop-filter: blur(6.5px)) {
+      background-color: var(--hs-bg-color-o);
+    }
+
     #{$this}title {
       height: 50px;
       font-size: 25px;
@@ -184,29 +188,19 @@ pre {
       white-space: nowrap;
       user-select: none;
       color: var(--hs-pri-color);
-      cursor: pointer;
     }
   }
 
   &ctr {
     display: block;
     width: 87%;
+    max-width: 1024px;
     margin-right: auto;
     margin-left: auto
   }
 
   &button {
-    display: inline-block;
-    padding: .5rem 1rem;
-    margin: .5rem 1rem;
-    min-width: 6rem;
-    box-shadow: 0 0 3px 0 var(--hs-shadow);
-    transition: box-shadow .3s;
-    border-radius: 5px;
-
-    &:hover {
-      box-shadow: 0 0 6px 0 var(--hs-shadow);
-    }
+    @extend button;
 
     &-pri {
       @extend .hs-button;
@@ -218,7 +212,7 @@ pre {
 }
 
 //Web Grid用調整
-h2+.r > [class*=c-] {
+h3+.r > [class*=c-] {
   padding: 0;
 }
 

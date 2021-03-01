@@ -21,6 +21,7 @@
 :root {
   --hs-color: #242452;
   --hs-bg-color: #ffffff;
+  --hs-bg-color-o: #ffffffe0;
   --hs-bg-color2: #ebebef;
   --hs-pri-color: #41adef;
   --hs-shadow: #a0a6b8;
@@ -29,6 +30,7 @@
 :root.hs-dark {
   --hs-color: #eeeef7;
   --hs-bg-color: #212121;
+  --hs-bg-color-o: #212121e0;
   --hs-bg-color2: #3a3a40;
   --hs-shadow: #16181d;
 }
@@ -68,6 +70,16 @@ h1 > a {
 }
 
 h2 {
+  text-align: center;
+  font-size: 24px;
+}
+
+h2 > a {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+}
+
+h3 {
   width: 100%;
   background-color: var(--hs-bg-color2);
   height: 34px;
@@ -78,11 +90,19 @@ h2 {
   font-size: 16px;
 }
 
-h3 {
+h4 {
   color: var(--hs-pri-color);
   margin: 15px 0 0 0;
   font-size: 15px;
   line-height: 15px;
+}
+
+h5 {
+  font-size: 15px;
+}
+
+h6 {
+  font-size: 12px;
 }
 
 code {
@@ -107,6 +127,40 @@ pre {
   background-color: var(--hs-bg-color2);
 }
 
+button, .hs-button, .hs-button-pri,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+  display: inline-block;
+  padding: .5rem 1rem;
+  margin: .5rem 1rem;
+  min-width: 6rem;
+  -webkit-box-shadow: 0 0 3px 0 var(--hs-shadow);
+          box-shadow: 0 0 3px 0 var(--hs-shadow);
+  -webkit-transition: -webkit-box-shadow .3s;
+  transition: -webkit-box-shadow .3s;
+  transition: box-shadow .3s;
+  transition: box-shadow .3s, -webkit-box-shadow .3s;
+  border-radius: 5px;
+  text-align: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  outline: none;
+  border: none;
+  color: var(--hs-pri-color);
+  background-color: var(--hs-bg-color);
+}
+
+button:hover, .hs-button:hover, .hs-button-pri:hover,
+input[type="button"]:hover,
+input[type="submit"]:hover,
+input[type="reset"]:hover {
+  -webkit-box-shadow: 0 0 6px 0 var(--hs-shadow);
+          box-shadow: 0 0 6px 0 var(--hs-shadow);
+}
+
 .hs-fixednav {
   display: -ms-grid;
   display: grid;
@@ -125,6 +179,12 @@ pre {
   -webkit-backdrop-filter: blur(6.5px);
           backdrop-filter: blur(6.5px);
   color: var(--hs-pri-color);
+}
+
+@supports not ((-webkit-backdrop-filter: blur(6.5px)) or (backdrop-filter: blur(6.5px))) {
+  .hs-fixednav {
+    background-color: var(--hs-bg-color-o);
+  }
 }
 
 .hs-fixednav .hs-title {
@@ -168,6 +228,12 @@ pre {
   z-index: 100;
 }
 
+@supports not ((-webkit-backdrop-filter: blur(6.5px)) or (backdrop-filter: blur(6.5px))) {
+  .hs-menu {
+    background-color: var(--hs-bg-color-o);
+  }
+}
+
 .hs-menu .hs-title {
   height: 50px;
   font-size: 25px;
@@ -192,33 +258,14 @@ pre {
       -ms-user-select: none;
           user-select: none;
   color: var(--hs-pri-color);
-  cursor: pointer;
 }
 
 .hs-ctr {
   display: block;
   width: 87%;
+  max-width: 1024px;
   margin-right: auto;
   margin-left: auto;
-}
-
-.hs-button, .hs-button-pri {
-  display: inline-block;
-  padding: .5rem 1rem;
-  margin: .5rem 1rem;
-  min-width: 6rem;
-  -webkit-box-shadow: 0 0 3px 0 var(--hs-shadow);
-          box-shadow: 0 0 3px 0 var(--hs-shadow);
-  -webkit-transition: -webkit-box-shadow .3s;
-  transition: -webkit-box-shadow .3s;
-  transition: box-shadow .3s;
-  transition: box-shadow .3s, -webkit-box-shadow .3s;
-  border-radius: 5px;
-}
-
-.hs-button:hover, .hs-button-pri:hover {
-  -webkit-box-shadow: 0 0 6px 0 var(--hs-shadow);
-          box-shadow: 0 0 6px 0 var(--hs-shadow);
 }
 
 .hs-button-pri {
@@ -226,7 +273,7 @@ pre {
   background-color: var(--hs-pri-color);
 }
 
-h2 + .r > [class*=c-] {
+h3 + .r > [class*=c-] {
   padding: 0;
 }
 

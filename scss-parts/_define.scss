@@ -1,0 +1,48 @@
+$color:#242452;
+$color-d:#eeeef7;
+$bg-color:#ffffff;
+$bg-color-d:#212121;
+$bg-color-o:#ffffffe0;
+$bg-color-d-o:#212121e0;
+$bg-color2:#ebebef;
+$bg-color2-d:#3a3a40;
+$pri-color:#41adef;
+$shadow:#a0a6b8;
+$shadow-d:#16181d;
+
+@font-face {
+  font-family: 'Jost';
+  src: url(../font/Jost/TrueType/Jost-400-Book.ttf);
+}
+
+@font-face {
+  font-family: 'NotoSansCJKjp';
+  src: url(../font/Noto/NotoSansCJKjp-Regular.otf);
+}
+
+@font-face {
+  font-family: 'FiraMono';
+  src: url(../font/Fira/ttf/FiraMono-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'MaterialIcons';
+  src: url(../font/MaterialDesignIcons/font/MaterialIcons-Regular.ttf);
+}
+
+:root {
+  --hs-color: #{$color};
+  --hs-bg-color: #{$bg-color};
+  --hs-bg-color-o: #{$bg-color-o};
+  --hs-bg-color2: #{$bg-color2};
+  --hs-pri-color: #{$pri-color};
+  --hs-shadow: #{$shadow};
+
+  &.hs-dark {
+    --hs-color: #{$color-d};
+    --hs-bg-color: #{$bg-color-d};
+    --hs-bg-color-o: #{$bg-color-d-o};
+    --hs-bg-color2: #{$bg-color2-d};
+    --hs-shadow: #{$shadow-d};
+  }
+}
